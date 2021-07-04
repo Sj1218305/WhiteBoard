@@ -5,8 +5,9 @@
     background: black;
 }
 
-.color-picker-container{
+.color-picker-container, .set-line-width{
     text-align: center;
+    margin: 0px 10px 0px;
 }
 
 .board-container{
@@ -15,4 +16,18 @@
     margin:auto;
     margin-top:1%;
     background:white;
+}
+
+
+.adjustments {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px 10px;
+}
+
+
+/* set-line-width */
+
+.set-line-width button {
+    padding: 5px;
 }
