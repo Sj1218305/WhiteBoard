@@ -1,5 +1,7 @@
 import React from "react"
 import './style.css'
+// import SetLineWidth from "../container/SetLineWidth";
+
 class Board extends React.Component
 {
         constructor(props){
@@ -8,11 +10,9 @@ class Board extends React.Component
         componentDidMount(){
             this.drawOnCanvas();
         }
-
         drawOnCanvas(){
-            var canvas = document.querySelector('#board');
+        var canvas = document.querySelector('#board');
         var ctx = canvas.getContext('2d');
-
         var sketch = document.querySelector('#sketch');
         var sketch_style = getComputedStyle(sketch);
         canvas.width = parseInt(sketch_style.getPropertyValue('width'));
@@ -30,9 +30,17 @@ class Board extends React.Component
             mouse.y = e.pageY - this.offsetTop;
         }, false);
 
+        /* Change Pen Width */
+        const buttons = document.getElementsByClassName('button');
+        console.log(buttons);
+        for (let x = 0; x < buttons.length; x++) {
+            buttons[x].addEventListener('click', () => {
+            ctx.lineWidth = parseInt(buttons[x].innerText);
+            });
+        }
+        
 
         /* Drawing on Paint App */
-        ctx.lineWidth = 5;
         ctx.lineJoin = 'round';
         ctx.lineCap = 'round';
         ctx.strokeStyle = 'blue';
@@ -53,12 +61,9 @@ class Board extends React.Component
             ctx.stroke();
         };
 
-
-
 };
-        
 
-        render(){
+        render() {
             return(
                 <div className="sketch" id="sketch">
                     <canvas className="board" id='board'></canvas>
