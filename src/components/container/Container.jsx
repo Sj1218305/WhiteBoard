@@ -1,7 +1,10 @@
 import React from 'react';
 import Board from '../board/Board'
 import SetLineWidth from './SetLineWidth'
+import SnapShot from './SnapShot'
 import './style.css'
+
+
 class Container extends React.Component
 {
     constructor(props){
@@ -16,6 +19,7 @@ class Container extends React.Component
                         <input type='color'/>
                     </div>
                     <SetLineWidth/>
+                    <SnapShot/>
                 </div>
                     <div className="board-container">
                         <Board></Board>
